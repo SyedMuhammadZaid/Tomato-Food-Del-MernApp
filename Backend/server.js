@@ -14,6 +14,13 @@ const port = 4000;
 // middleware
 app.use(express.json());
 
+app.use(cors(
+  {origin: ["https://tomato-food-del-mern-app.vercel.app"],
+  methods: ["POST","GET"],
+  credentials: true
+  }
+));
+
 
 //db connection
 connectDB();

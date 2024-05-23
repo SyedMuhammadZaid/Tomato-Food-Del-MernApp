@@ -15,7 +15,7 @@ const port = 4000;
 app.use(express.json());
 
 app.use(cors(
-  {origin: ["https://tomato-food-del-mern-app.vercel.app"],
+  {origin: ["https://tomato-food-del-mern-app.vercel.app/"],
   methods: ["POST","GET"],
   credentials: true
   }

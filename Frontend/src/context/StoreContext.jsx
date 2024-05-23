@@ -11,7 +11,7 @@ const StoreContextProvider = (props) => {
 
   const [token, setToken] = useState("");
 
-  const url = "http://localhost:4000";
+  const url = "https://tomato-food-del-mern-app.vercel.app";
 
   const getFoodList = async () => {
     let res = await axios.get(`${url}/api/food/list`);

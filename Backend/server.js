@@ -9,7 +9,7 @@ import orderRouter from "./routes/orderRoute.js";
 
 const allowCors = (fn) => async (req, res) => {
   res.setHeader("Access-Control-Allow-Credentials", true);
-  res.setHeader("Access-Control-Allow-Origin", "*");
+  res.setHeader("Access-Control-Allow-Origin", "https://tomato-food-del-frontend.vercel.app");
   // Set other CORS headers as needed
   if (req.method === "OPTIONS") {
     res.status(200).end();

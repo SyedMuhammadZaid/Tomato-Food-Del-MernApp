@@ -7,23 +7,23 @@
   ],
     "headers": [
     {
-      "source": "/api/(.*)", // Apply headers only to routes starting with "/api/"
+      "source": "/api/(.*)", 
       "headers": [
         {
           "key": "Access-Control-Allow-Origin",
-          "value": "*" // Allow requests from all origins
+          "value": "*" 
         },
         {
           "key": "Access-Control-Allow-Methods",
-          "value": "GET,POST,PUT,DELETE,OPTIONS" // Allow specified HTTP methods
+          "value": "GET,POST,PUT,DELETE,OPTIONS" 
         },
         {
           "key": "Access-Control-Allow-Headers",
-          "value": "Content-Type, Authorization" // Allow specified headers
+          "value": "Content-Type, Authorization" 
         },
         {
           "key": "Access-Control-Allow-Credentials",
-          "value": "true" // Allow credentials (cookies, authorization headers, etc.)
+          "value": "true" 
         }
       ]
     }

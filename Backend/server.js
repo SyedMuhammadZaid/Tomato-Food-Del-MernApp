@@ -14,12 +14,7 @@ const port = 4000;
 // middleware
 app.use(express.json());
 
-app.use(cors(
-  {origin: "*",
-  methods: ["POST","GET"],
-  credentials: true
-  }
-));
+app.use(cors());
 
 
 //db connection

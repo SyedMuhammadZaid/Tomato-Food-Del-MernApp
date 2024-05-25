@@ -11,7 +11,7 @@ const StoreContextProvider = (props) => {
 
   const [token, setToken] = useState("");
   axios.defaults.withCredentials = true;
-  const url = "";
+  const url = "https://tomato-food-del-backend.vercel.app";
 
   const getFoodList = async () => {
     let res = await axios.get(`${url}/api/food/list`);

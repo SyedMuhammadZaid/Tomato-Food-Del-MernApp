@@ -4,6 +4,16 @@
       "source": "/(.*)",
       "destination": "server.js"
     }
-  ]
+  ],
+    "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "Access-Control-Allow-Origin",
+          "value": "https://tomato-food-del-frontend.vercel.app" 
+      ]
+    }
+    ]
  
 }

@@ -14,8 +14,12 @@ const port = 4000;
 // middleware
 app.use(express.json());
 
-app.use(cors());
+const corsOptions = {
+    origin: 'https://tomato-food-del-frontend.vercel.app',
+    credentials: true
+};
 
+app.use(cors(corsOptions));
 
 //db connection
 connectDB();

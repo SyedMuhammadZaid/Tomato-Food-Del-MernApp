@@ -7,33 +7,17 @@ import 'dotenv/config';
 import cartRouter from "./routes/cartRoutes.js";
 import orderRouter from "./routes/orderRoute.js";
 
-const allowCors = (fn) => async (req, res) => {
-  res.setHeader("Access-Control-Allow-Credentials", true);
-  res.setHeader("Access-Control-Allow-Origin", "https://tomato-food-del-frontend.vercel.app");
-  // Set other CORS headers as needed
-  if (req.method === "OPTIONS") {
-    res.status(200).end();
-    return;
-  }
-  return await fn(req, res);
-};
-
 // app config
 const app = express();
 const port = 4000;
-
-// Apply the allowCors middleware to your route handlers
-app.get("/", allowCors((req, res) => {
-  const d = new Date();
-  res.end(d.toString());
-}));
 
 // middleware
 app.use(express.json());
 
 // CORS configuration
 const corsOptions = {
-    origin: 'https://tomato-food-del-frontend.vercel.app', // Ensure no trailing slash
+    origin: ['https://tomato-food-del-frontend.vercel.app'],
+    methods: ["POST", "GET", "PUT"]
     credentials: true
 };
 

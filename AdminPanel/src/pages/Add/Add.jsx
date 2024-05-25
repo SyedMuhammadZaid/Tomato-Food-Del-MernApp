@@ -29,7 +29,7 @@ const Add = ({url}) => {
     formData.append("price", Number(data.price));
     formData.append("image", image);
 
-    let res = await axios.post(`${url}/api/food/add`, formData);
+    let res = await axios.post(`${url}/api/food/add`, formData , { withCredentials: true });
     if (res?.data.success) {
       setData({
         name: "",

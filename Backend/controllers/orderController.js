@@ -6,7 +6,7 @@ import axios from "axios";
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 
 const placeOrder = async (req, res) => {
-  const frontend_url = "https://tomato-food-del-mern-app-frontend.vercel.app";
+  const frontend_url = "https://tomato-food-del-frontend.vercel.app";
 
   try {
     const newOrder = new orderModel({

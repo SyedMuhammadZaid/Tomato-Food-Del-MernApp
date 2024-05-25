@@ -14,7 +14,7 @@ const StoreContextProvider = (props) => {
   const url = "https://tomato-food-del-backend.vercel.app";
 
   const getFoodList = async () => {
-    let res = await axios.get(`${url}/api/food/list`);
+    let res = await axios.get(`${url}/api/food/list`,{ withCredentials: true });
     if (res?.data?.success) {
       set_food_list(res?.data?.data);
     }
@@ -22,7 +22,7 @@ const StoreContextProvider = (props) => {
 
   const getCartData = async (token) => {
     try {
-      let res = await axios.post(url+'/api/cart/get',{},{headers:{token}});
+      let res = await axios.post(url+'/api/cart/get',{},{headers:{token},  withCredentials: true });
       setCartItems(res?.data?.cartData);
     } catch (error) {
       console.log(error);
@@ -47,7 +47,7 @@ const StoreContextProvider = (props) => {
       setCartItems((prev) => ({ ...prev, [itemId]: prev[itemId] + 1 }));
     }
     if (token) {
-      const cartData = await axios.post(url + "/api/cart/add",{ itemId }, { headers: { token } });
+      const cartData = await axios.post(url + "/api/cart/add",{ itemId }, { headers: { token },  withCredentials: true  });
       if(cartData?.data?.success) toast.success(cartData?.data?.message);
     }
   };
@@ -56,7 +56,7 @@ const StoreContextProvider = (props) => {
     setCartItems((prev) => ({ ...prev, [itemId]: prev[itemId] - 1 }));
 
     if (token) {
-      const cartData = await axios.post(url + "/api/cart/remove",{ itemId }, { headers: { token } });
+      const cartData = await axios.post(url + "/api/cart/remove",{ itemId }, { headers: { token },  withCredentials: true  });
       if(cartData?.data?.success) toast.success(cartData?.data?.message);
     }
   };

@@ -13,7 +13,7 @@ const Verify = () => {
   const navigate = useNavigate()
 
   const verifyPayment = async () => {
-    let resp = await axios.post(url + "/api/order/verify", {orderId,success});
+    let resp = await axios.post(url + "/api/order/verify", {orderId,success}, { withCredentials: true });
     if(resp.data.success){
       toast.success(resp?.data?.message)
       navigate('/myorders')

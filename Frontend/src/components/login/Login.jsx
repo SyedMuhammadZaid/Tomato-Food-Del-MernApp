@@ -19,7 +19,7 @@ const Login = ({ setShowLogin }) => {
 
   const loginHandler = async (newUrl, data) => {
     try {
-      let res = await axios.post(newUrl, data);
+      let res = await axios.post(newUrl, data, { withCredentials: true });
       if (res?.data.success) {
         setShowLogin(false);
         toast.success(res?.data?.message);

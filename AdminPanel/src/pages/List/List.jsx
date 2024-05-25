@@ -9,7 +9,7 @@ const List = ({url}) => {
 
 
   const fetchList = async () => {
-    const res = await axios.get(`${url}/api/food/list`);
+    const res = await axios.get(`${url}/api/food/list`, { withCredentials: true });
     if (res?.data?.success) {
       setList(res?.data?.data);
     } else {
@@ -18,7 +18,7 @@ const List = ({url}) => {
   };
 
   const removeItemHandler = async (id) => {
-    const res = await axios.post(`${url}/api/food/remove`, {id: id});
+    const res = await axios.post(`${url}/api/food/remove`, {id: id}, { withCredentials: true });
     if (res?.data?.success) {
       toast.success(res?.data?.message);
       await fetchList()

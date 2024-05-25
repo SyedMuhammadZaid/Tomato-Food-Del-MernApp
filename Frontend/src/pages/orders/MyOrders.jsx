@@ -15,7 +15,7 @@ const MyOrders = () => {
     let resp = await axios.post(
       url + "/api/order/userorders",
       {},
-      { headers: { token } }
+      { headers: { token },  withCredentials: true  }
     );
     console.log(resp);
     if (resp.data.success) {

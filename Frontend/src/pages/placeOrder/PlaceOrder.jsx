@@ -35,6 +35,7 @@ const PlaceOrder = () => {
 
     let response = await axios.post(url + "/api/order/place", orderData, {
       headers: { token },
+      withCredentials: true 
     });
 
     if (response?.data?.success) {

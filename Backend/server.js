@@ -24,7 +24,7 @@ app.use(cors(corsOptions));
 
 // Manual CORS headers (for debugging, can be removed if not needed)
 app.use((req, res, next) => {
-    res.header('Access-Control-Allow-Origin', 'https://tomato-food-del-frontend.vercel.app');
+    res.header('Access-Control-Allow-Origin', 'https://tomato-food-del-frontend.vercel.app/');
     res.header('Access-Control-Allow-Credentials', 'true');
     res.header('Access-Control-Allow-Methods', 'GET,POST,PUT,DELETE,OPTIONS');
     res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization');

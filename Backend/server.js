@@ -14,6 +14,18 @@ const port = 4000;
 // middleware
 app.use(express.json());
 
+
+// Manual CORS headers (for debugging, can be removed if not needed)
+app.use((req, res, next) => {
+    res.header('Access-Control-Allow-Origin', 'https://tomato-food-del-frontend.vercel.app'); // Ensure no trailing slash
+    res.header('Access-Control-Allow-Credentials', 'true');
+    res.header('Access-Control-Allow-Methods', 'GET,POST,PUT,DELETE,OPTIONS');
+    res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+    console.log('Applying CORS settings'); // Log to verify middleware application
+    next();
+});
+
+
 // CORS configuration
 const corsOptions = {
     origin: ['https://tomato-food-del-frontend.vercel.app'],
@@ -22,7 +34,6 @@ const corsOptions = {
 };
 
 app.use(cors(corsOptions));
-
 
 
 // db connection

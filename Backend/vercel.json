@@ -4,5 +4,28 @@
       "source": "/(.*)",
       "destination": "server.js"
     }
+  ],
+    "headers": [
+    {
+      "source": "/api/(.*)", // Apply headers only to routes starting with "/api/"
+      "headers": [
+        {
+          "key": "Access-Control-Allow-Origin",
+          "value": "*" // Allow requests from all origins
+        },
+        {
+          "key": "Access-Control-Allow-Methods",
+          "value": "GET,POST,PUT,DELETE,OPTIONS" // Allow specified HTTP methods
+        },
+        {
+          "key": "Access-Control-Allow-Headers",
+          "value": "Content-Type, Authorization" // Allow specified headers
+        },
+        {
+          "key": "Access-Control-Allow-Credentials",
+          "value": "true" // Allow credentials (cookies, authorization headers, etc.)
+        }
+      ]
+    }
   ]
 }

@@ -16,7 +16,7 @@ app.use(express.json());
 
 // CORS configuration
 const corsOptions = {
-    origin: 'https://tomato-food-del-frontend.vercel.app',
+    origin: '*',
     credentials: true
 };
 

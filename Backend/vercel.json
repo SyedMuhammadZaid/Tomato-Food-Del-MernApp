@@ -1,19 +1,15 @@
 {
-  "rewrites": [
-    {
-      "source": "/(.*)",
-      "destination": "server.js"
-    }
-  ],
-    "headers": [
-    {
-      "source": "/(.*)",
-      "headers": [
-        {
-          "key": "Access-Control-Allow-Origin",
-          "value": "https://tomato-food-del-frontend.vercel.app" 
-      ]
-    }
+    "version": 2,
+    "builds": [
+      {
+        "src": "server.js",
+        "use": "@now/node"
+      }
+    ],
+    "routes": [
+      {
+        "src": "/(.*)",
+        "dest": "server.js"
+      }
     ]
- 
-}
+  }

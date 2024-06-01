@@ -14,7 +14,7 @@ const port = 4000;
 // middleware
 app.use(express.json());
 
-const allowedOrigin = ''; // Single allowed origin
+const allowedOrigin = 'https://tomato-food-del-frontend.vercel.app'; // Single allowed origin
 
 const corsOptions = {
   origin: allowedOrigin,

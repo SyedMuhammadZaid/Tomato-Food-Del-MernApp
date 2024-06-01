@@ -14,10 +14,16 @@ const port = 4000;
 // middleware
 app.use(express.json());
 
-const allowedOrigin = 'https://tomato-food-del-frontend.vercel.app'; // Single allowed origin
+const allowedOrigin = ['https://tomato-food-del-frontend.vercel.app', 'https://tomato-food-del-admin-xi.vercel.app']; // Single allowed origin
 
 const corsOptions = {
-  origin: allowedOrigin,
+  origin: function (origin, callback) {
+    if (allowedOrigins.indexOf(origin) !== -1 || !origin) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
   credentials: true // Enable credentials (cookies, authorization headers, etc.)
 };
 

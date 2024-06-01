@@ -14,20 +14,15 @@ const port = 4000;
 // middleware
 app.use(express.json());
 
+const allowedOrigin = ''; // Single allowed origin
 
-const allowedOrigins = ['https://tomato-food-del-frontend.vercel.app']; // List of allowed origins
+const corsOptions = {
+  origin: allowedOrigin,
+  credentials: true // Enable credentials (cookies, authorization headers, etc.)
+};
 
-app.use((req, res, next) => {
-    const origin = req.headers.origin;
-    if (allowedOrigins.includes(origin)) {
-        res.header('Access-Control-Allow-Origin', origin); // Allow specific origin
-    }
-    res.header('Access-Control-Allow-Credentials', 'true');
-    res.header('Access-Control-Allow-Methods', 'GET,POST,PUT,DELETE,OPTIONS');
-    res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
-    console.log('Applying CORS settings'); // Log to verify middleware application
-    next();
-});
+// Configure CORS middleware
+app.use(cors(corsOptions));
 
 // db connection
 connectDB();
